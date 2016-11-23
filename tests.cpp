@@ -122,7 +122,7 @@ TEST(CPP_OBSERVER, registerAndNotifyAsyncWait ) {
 	const int TEST_EVENT_ID = std::rand();
 	TestEvent event{TEST_EVENT_ID};
 
-	subject.notifyObserversAsync(event, true); 
+	subject.notifyObservers(event); 
         
     for (auto const &ob: observers) {
 	    EXPECT_THAT (ob->_receivedEventId, Eq(TEST_EVENT_ID));
