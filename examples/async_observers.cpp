@@ -1,14 +1,3 @@
-[![Build Status](https://travis-ci.org/alext234/CppObserverAsync.svg?branch=master)](https://travis-ci.org/alext234/CppObserverAsync)
-
-# CppObserverAsync
-This is a simple implementation of observer pattern which allows the observable subject to notify multiple observers at the same time.
-It is based on modern C++11's support for concurrency such as ```std::async```.
-
-Below is the example on how to use
-
-
-```c++
-
 #include <iostream>
 #include <string>
 #include <memory>
@@ -80,17 +69,3 @@ int main (int argc, char* argv[]) {
     std::cout<<"duration (ms):"<<d<<std::endl;
     
 }
-
-```
-
-
-## Build tests and examples
-```
-- mkdir build
-- cd build
-- cmake ..
-- make
-- ./runtests
-- ./examples/async_observers
-
-```

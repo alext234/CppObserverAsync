@@ -15,3 +15,4 @@ target_link_libraries(runtests gmock)
 target_link_libraries(runtests gtest)
 target_link_libraries(runtests pthread)
 
+add_subdirectory(examples)

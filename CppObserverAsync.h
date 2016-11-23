@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 #include <future>
+#include <algorithm>
 
 template <typename Event>
 class AbstractObserverAsync {
@@ -57,6 +58,10 @@ public:
 
 	}
 
+	void notifyObservers(const Event& event) {
+        notifyObserversAsync(event, true);
+    }
+
 	void notifyObserversAsync(const Event& event,bool waitAllCompleted=true){
         
         //http://stackoverflow.com/questions/30810305/confusion-about-threads-launched-by-stdasync-with-stdlaunchasync-parameter
@@ -83,6 +88,7 @@ public:
         }
 
 	}
+
 protected:
 	std::vector<std::weak_ptr<AbstractObserverAsync<Event>> >  _observers;
 	std::vector<std::shared_ptr<AbstractObserverAsync<Event>> >  _observersFromLambda; // as a place holder to keep these objects alive (i.e. from killing away by smartpointer)
